@@ -14,7 +14,6 @@
     --ok-primary-hover: #ff1932;
     --ok-dark: #120204;
     --ok-body: #544f52;
-    --ok-gray: #e8ebef;
     --ok-white: #ffffff;
     --ok-radius-pill: 999px;
     --ok-radius-card: 28px;
@@ -60,7 +59,7 @@
   }
 
   .preview-section {
-    margin-bottom: 80px;
+    margin-bottom: 64px;
   }
 
   .preview-label {
@@ -98,15 +97,14 @@
     color: #6b6560;
   }
 
-  /* === SHARED TEASER BASE === */
+  /* === TEASER === */
 
   .ok-teaser-link {
     display: block;
     text-decoration: none;
     color: inherit;
-    transition: transform 0.35s cubic-bezier(0.22, 0.61, 0.36, 1), box-shadow 0.35s;
-    border-radius: var(--ok-radius-card);
     outline: none;
+    border-radius: var(--ok-radius-card);
   }
 
   .ok-teaser-link:focus-visible {
@@ -114,29 +112,25 @@
     outline-offset: 4px;
   }
 
-  /* === VARIANT A — Card with text left, portrait right === */
-
-  .ok-teaser-a {
+  .ok-teaser {
     font-family: "Urbanist", system-ui, -apple-system, "Segoe UI", sans-serif;
     background: linear-gradient(135deg, #ffffff 0%, #f4eef0 100%);
     border-radius: var(--ok-radius-card);
-    padding: 48px;
     display: grid;
-    grid-template-columns: 1.25fr 1fr;
-    gap: 48px;
-    align-items: center;
+    grid-template-columns: 1fr 1fr;
+    align-items: stretch;
     position: relative;
     overflow: hidden;
     box-shadow: 0 10px 40px -12px rgba(168, 0, 18, 0.12), 0 2px 8px rgba(18, 2, 4, 0.04);
     border: 1px solid rgba(168, 0, 18, 0.08);
-    transition: box-shadow 0.35s;
+    transition: box-shadow 0.35s cubic-bezier(0.22, 0.61, 0.36, 1);
   }
 
-  .ok-teaser-link:hover .ok-teaser-a {
+  .ok-teaser-link:hover .ok-teaser {
     box-shadow: 0 20px 60px -15px rgba(168, 0, 18, 0.25), 0 4px 12px rgba(18, 2, 4, 0.06);
   }
 
-  .ok-teaser-a::before {
+  .ok-teaser::before {
     content: "";
     position: absolute;
     top: -140px;
@@ -146,15 +140,38 @@
     background: radial-gradient(circle, rgba(168, 0, 18, 0.08) 0%, transparent 70%);
     border-radius: 50%;
     pointer-events: none;
+    z-index: 0;
   }
 
-  .ok-teaser-a__content {
+  .ok-teaser__content {
     position: relative;
     z-index: 2;
     min-width: 0;
+    padding: 48px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 
-  .ok-teaser-a > * { min-width: 0; }
+  .ok-teaser > * { min-width: 0; }
+
+  /* Portrait image: fills the right column edge-to-edge, rounded on the inner side */
+  .ok-teaser__image {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: center 25%;
+    border-top-left-radius: var(--ok-radius-card);
+    border-bottom-left-radius: var(--ok-radius-card);
+    transition: transform 0.6s cubic-bezier(0.22, 0.61, 0.36, 1);
+  }
+
+  .ok-teaser-link:hover .ok-teaser__image {
+    transform: scale(1.03);
+  }
+
+  /* === Inner content parts === */
 
   .ok-badge {
     display: inline-flex;
@@ -169,6 +186,7 @@
     letter-spacing: 0.04em;
     text-transform: uppercase;
     margin-bottom: 24px;
+    align-self: flex-start;
   }
 
   .ok-badge-dot {
@@ -185,7 +203,7 @@
     50% { box-shadow: 0 0 0 8px rgba(168, 0, 18, 0.05); }
   }
 
-  .ok-teaser-a__heading {
+  .ok-teaser__heading {
     font-size: clamp(26px, 3.2vw, 42px);
     font-weight: 600;
     line-height: 1.15;
@@ -196,12 +214,12 @@
     hyphens: auto;
   }
 
-  .ok-teaser-a__heading strong {
+  .ok-teaser__heading strong {
     color: var(--ok-primary);
     font-weight: 600;
   }
 
-  .ok-teaser-a__text {
+  .ok-teaser__text {
     font-size: clamp(15px, 1.1vw, 17px);
     line-height: 1.6;
     color: var(--ok-body);
@@ -248,6 +266,7 @@
     color: var(--ok-white);
     box-shadow: 0 4px 14px -2px rgba(168, 0, 18, 0.35);
     transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    align-self: flex-start;
   }
 
   .ok-cta svg {
@@ -265,289 +284,59 @@
     transform: translateX(4px);
   }
 
-  /* Portrait on right */
-  .ok-teaser-a__portrait {
-    position: relative;
-    z-index: 2;
-    aspect-ratio: 4 / 5;
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: 0 20px 50px -15px rgba(18, 2, 4, 0.25), 0 2px 6px rgba(18, 2, 4, 0.05);
-  }
-
-  .ok-teaser-a__portrait img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center 20%;
-    display: block;
-    transition: transform 0.6s cubic-bezier(0.22, 0.61, 0.36, 1);
-  }
-
-  .ok-teaser-link:hover .ok-teaser-a__portrait img {
-    transform: scale(1.04);
-  }
-
-  .ok-teaser-a__portrait-caption {
-    position: absolute;
-    left: 20px;
-    right: 20px;
-    bottom: 20px;
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    border-radius: 14px;
-    padding: 14px 18px;
-    font-size: 13px;
-    line-height: 1.4;
-  }
-
-  .ok-teaser-a__portrait-caption strong {
-    display: block;
-    color: var(--ok-dark);
-    font-weight: 600;
-    font-size: 15px;
-    margin-bottom: 2px;
-  }
-
-  .ok-teaser-a__portrait-caption span {
-    color: var(--ok-body);
-  }
-
-  /* === VARIANT B — Full-width hero with background image + overlay === */
-
-  .ok-teaser-b {
-    font-family: "Urbanist", system-ui, -apple-system, "Segoe UI", sans-serif;
-    position: relative;
-    border-radius: var(--ok-radius-card);
-    overflow: hidden;
-    min-height: 520px;
-    display: flex;
-    align-items: center;
-    color: var(--ok-white);
-    box-shadow: 0 10px 40px -12px rgba(18, 2, 4, 0.3);
-    transition: box-shadow 0.35s;
-    isolation: isolate;
-  }
-
-  .ok-teaser-link:hover .ok-teaser-b {
-    box-shadow: 0 20px 60px -15px rgba(18, 2, 4, 0.45);
-  }
-
-  .ok-teaser-b__bg {
-    position: absolute;
-    inset: 0;
-    z-index: 0;
-    background-image: url("https://orthopaedie-koeln.de/wp-content/uploads/Ziolko_small.webp");
-    background-size: cover;
-    background-position: 75% 20%;
-    transition: transform 0.8s cubic-bezier(0.22, 0.61, 0.36, 1);
-  }
-
-  .ok-teaser-link:hover .ok-teaser-b__bg {
-    transform: scale(1.04);
-  }
-
-  .ok-teaser-b__overlay {
-    position: absolute;
-    inset: 0;
-    z-index: 1;
-    background:
-      linear-gradient(90deg,
-        rgba(18, 2, 4, 0.92) 0%,
-        rgba(18, 2, 4, 0.85) 35%,
-        rgba(18, 2, 4, 0.55) 60%,
-        rgba(18, 2, 4, 0.15) 100%
-      ),
-      linear-gradient(180deg,
-        rgba(18, 2, 4, 0.2) 0%,
-        transparent 30%,
-        transparent 70%,
-        rgba(18, 2, 4, 0.3) 100%
-      );
-  }
-
-  .ok-teaser-b__content {
-    position: relative;
-    z-index: 2;
-    padding: 72px 64px;
-    max-width: 720px;
-    width: 100%;
-  }
-
-  .ok-badge--light {
-    background: rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    color: var(--ok-white);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-  }
-
-  .ok-badge--light .ok-badge-dot {
-    background: #ff5c6e;
-    box-shadow: 0 0 0 4px rgba(255, 92, 110, 0.25);
-  }
-
-  .ok-teaser-b__heading {
-    font-size: clamp(30px, 4vw, 54px);
-    font-weight: 600;
-    line-height: 1.1;
-    color: var(--ok-white);
-    margin: 0 0 20px 0;
-    letter-spacing: -0.015em;
-    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.25);
-    overflow-wrap: break-word;
-    hyphens: auto;
-  }
-
-  .ok-teaser-b__heading em {
-    font-style: normal;
-    color: #ffc6ce;
-    font-weight: 600;
-  }
-
-  .ok-teaser-b__text {
-    font-size: clamp(15px, 1.15vw, 18px);
-    line-height: 1.6;
-    color: rgba(255, 255, 255, 0.9);
-    margin: 0 0 32px 0;
-    max-width: 540px;
-    text-shadow: 0 1px 10px rgba(0, 0, 0, 0.2);
-  }
-
-  .ok-features--light li { color: var(--ok-white); }
-
-  .ok-features--light svg { color: #ffc6ce; }
-
-  /* Doctor name strip bottom-left on Variant B */
-  .ok-teaser-b__signature {
-    position: absolute;
-    left: 64px;
-    bottom: 32px;
-    z-index: 3;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 12px 20px 12px 16px;
-    background: rgba(255, 255, 255, 0.12);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    border-radius: var(--ok-radius-pill);
-    font-size: 14px;
-    color: var(--ok-white);
-  }
-
-  .ok-teaser-b__signature-dot {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background: #ffc6ce;
-    flex-shrink: 0;
-  }
-
-  .ok-teaser-b__signature strong {
-    font-weight: 600;
-    margin-right: 4px;
-  }
-
-  .ok-teaser-b__signature span {
-    color: rgba(255, 255, 255, 0.75);
-  }
-
   /* === RESPONSIVE === */
   @media (max-width: 900px) {
-    .ok-teaser-a {
+    .ok-teaser {
       grid-template-columns: 1fr;
-      gap: 28px;
+    }
+
+    .ok-teaser__content {
       padding: 32px 28px;
+      order: 2;
     }
 
-    .ok-teaser-a__portrait {
-      order: -1;
-      aspect-ratio: 16 / 10;
-      max-height: 320px;
-    }
-
-    .ok-teaser-a__portrait img {
-      object-position: center 25%;
-    }
-
-    .ok-teaser-b {
-      min-height: 480px;
-    }
-
-    .ok-teaser-b__content {
-      padding: 56px 40px;
-    }
-
-    .ok-teaser-b__overlay {
-      background:
-        linear-gradient(180deg,
-          rgba(18, 2, 4, 0.35) 0%,
-          rgba(18, 2, 4, 0.7) 55%,
-          rgba(18, 2, 4, 0.92) 100%
-        );
-    }
-
-    .ok-teaser-b__bg {
-      background-position: center 18%;
-    }
-
-    .ok-teaser-b__signature {
-      left: 40px;
-      bottom: 24px;
-      font-size: 13px;
-      padding: 10px 16px 10px 14px;
+    .ok-teaser__image {
+      order: 1;
+      aspect-ratio: 1 / 1;
+      max-height: min(420px, 80vw);
+      border-top-left-radius: var(--ok-radius-card);
+      border-top-right-radius: var(--ok-radius-card);
+      border-bottom-left-radius: var(--ok-radius-card);
+      border-bottom-right-radius: var(--ok-radius-card);
+      object-position: center 20%;
     }
   }
 
   @media (max-width: 560px) {
-    .ok-teaser-a {
-      padding: 24px 22px;
+    .ok-teaser {
       border-radius: 20px;
     }
 
-    .ok-teaser-a__heading { font-size: 24px; }
-    .ok-teaser-a__text { font-size: 15px; }
+    .ok-teaser-link {
+      border-radius: 20px;
+    }
+
+    .ok-teaser__content {
+      padding: 24px 22px;
+    }
+
+    .ok-teaser__image {
+      border-top-left-radius: 20px;
+      border-top-right-radius: 20px;
+      border-bottom-left-radius: 20px;
+      border-bottom-right-radius: 20px;
+      aspect-ratio: 1 / 1;
+      max-height: 340px;
+    }
+
+    .ok-teaser__heading { font-size: 24px; }
+    .ok-teaser__text { font-size: 15px; }
 
     .ok-cta {
-      width: 100%;
+      align-self: stretch;
       justify-content: center;
       padding: 14px 24px;
       font-size: 16px;
-    }
-
-    .ok-teaser-a__portrait {
-      aspect-ratio: 4 / 3;
-      max-height: 260px;
-    }
-
-    .ok-teaser-a__portrait-caption {
-      left: 14px;
-      right: 14px;
-      bottom: 14px;
-      padding: 12px 14px;
-    }
-
-    .ok-teaser-b {
-      min-height: 420px;
-      border-radius: 20px;
-    }
-
-    .ok-teaser-b__content {
-      padding: 36px 22px 80px 22px;
-    }
-
-    .ok-teaser-b__heading { font-size: 26px; }
-    .ok-teaser-b__text { font-size: 15px; margin-bottom: 24px; }
-
-    .ok-teaser-b__signature {
-      left: 22px;
-      right: 22px;
-      bottom: 20px;
-      justify-content: center;
-      font-size: 12px;
     }
 
     .ok-features { gap: 8px 18px; }
@@ -560,35 +349,35 @@
 <div class="preview-wrap">
 
   <div class="preview-head">
-    <h1>Hero-Teaser · zwei Varianten</h1>
-    <p>Für Einbau auf ziolko.de (identisch dann auch auf orthopaedie-stricker.de mit angepasstem Arztbild und Namen). Der gesamte Teaser ist verlinkt — Klick auf beliebige Stelle führt zu orthopaedie-koeln.de.</p>
+    <h1>Hero-Teaser · final</h1>
+    <p>Card-Layout mit Text links und Arztbild rechts, 50/50 split. Gesamter Teaser klickbar. Unten zwei Varianten: Dr. Ziolko (für ziolko.de) und Dr. Stricker (für orthopaedie-stricker.de).</p>
   </div>
 
-  <!-- ============ VARIANT A ============ -->
+  <!-- ============ ZIOLKO ============ -->
   <section class="preview-section">
 
     <div class="preview-label">
-      <span class="preview-label-tag">Variante A</span>
-      Card-Layout — Text links, Arztbild rechts
+      <span class="preview-label-tag">Dr. Ziolko</span>
+      Einbau in ziolko.de Hero
     </div>
 
-    <!-- TEASER A START -->
+    <!-- TEASER START -->
     <a href="https://orthopaedie-koeln.de/" class="ok-teaser-link" aria-label="Zur neuen Praxis-Website: MVZ Orthopädie · PAN Klinik Köln">
-      <article class="ok-teaser-a">
+      <article class="ok-teaser">
 
-        <div class="ok-teaser-a__content">
+        <div class="ok-teaser__content">
 
           <span class="ok-badge">
             <span class="ok-badge-dot" aria-hidden="true"></span>
             Wir sind umgezogen
           </span>
 
-          <h2 class="ok-teaser-a__heading">
+          <h2 class="ok-teaser__heading">
             Dr. Ziolko ist jetzt Teil des<br>
             <strong>MVZ Orthopädie · PAN Klinik Köln</strong>
           </h2>
 
-          <p class="ok-teaser-a__text">
+          <p class="ok-teaser__text">
             Dr. med. Rudolf Ziolko behandelt Sie weiterhin persönlich – gemeinsam mit einem erweiterten Team aus Fachärzten für Orthopädie, Unfallchirurgie und Sportmedizin. Alle Leistungen, Termine und Informationen finden Sie jetzt gebündelt auf unserer neuen Praxis-Website.
           </p>
 
@@ -614,67 +403,55 @@
 
         </div>
 
-        <div class="ok-teaser-a__portrait">
-          <img
-            src="https://orthopaedie-koeln.de/wp-content/uploads/Ziolko_small.webp"
-            alt="Dr. med. Rudolf Ziolko, Orthopäde im MVZ Orthopädie PAN Klinik Köln"
-            loading="lazy"
-          >
-          <div class="ok-teaser-a__portrait-caption">
-            <strong>Dr. med. Rudolf Ziolko</strong>
-            <span>Facharzt für Orthopädie · MVZ Orthopädie Köln</span>
-          </div>
-        </div>
+        <img
+          class="ok-teaser__image"
+          src="https://orthopaedie-koeln.de/wp-content/uploads/Ziolko_small.webp"
+          alt="Dr. med. Rudolf Ziolko, Orthopäde im MVZ Orthopädie PAN Klinik Köln"
+          loading="lazy"
+        >
 
       </article>
     </a>
-    <!-- TEASER A END -->
+    <!-- TEASER END -->
 
   </section>
 
-  <!-- ============ VARIANT B ============ -->
+  <!-- ============ STRICKER ============ -->
   <section class="preview-section">
 
     <div class="preview-label">
-      <span class="preview-label-tag">Variante B</span>
-      Full-Width Hero — Arztbild als Hintergrund mit Overlay
+      <span class="preview-label-tag">Dr. Stricker</span>
+      Einbau in orthopaedie-stricker.de Hero
     </div>
 
-    <!-- TEASER B START -->
+    <!-- TEASER START -->
     <a href="https://orthopaedie-koeln.de/" class="ok-teaser-link" aria-label="Zur neuen Praxis-Website: MVZ Orthopädie · PAN Klinik Köln">
-      <article class="ok-teaser-b">
+      <article class="ok-teaser">
 
-        <div
-          class="ok-teaser-b__bg"
-          role="img"
-          aria-label="Dr. med. Rudolf Ziolko, Orthopäde im MVZ Orthopädie PAN Klinik Köln"
-        ></div>
-        <div class="ok-teaser-b__overlay" aria-hidden="true"></div>
+        <div class="ok-teaser__content">
 
-        <div class="ok-teaser-b__content">
-
-          <span class="ok-badge ok-badge--light">
+          <span class="ok-badge">
             <span class="ok-badge-dot" aria-hidden="true"></span>
             Wir sind umgezogen
           </span>
 
-          <h2 class="ok-teaser-b__heading">
-            Dr. Ziolko ist jetzt Teil des<br>
-            <em>MVZ Orthopädie · PAN Klinik Köln</em>
+          <h2 class="ok-teaser__heading">
+            Dr. Stricker ist jetzt Teil des<br>
+            <strong>MVZ Orthopädie · PAN Klinik Köln</strong>
           </h2>
 
-          <p class="ok-teaser-b__text">
-            Dr. med. Rudolf Ziolko behandelt Sie weiterhin persönlich – gemeinsam mit einem erweiterten Team aus Fachärzten für Orthopädie, Unfallchirurgie und Sportmedizin. Alle Informationen jetzt auf unserer neuen Praxis-Website.
+          <p class="ok-teaser__text">
+            Dr. med. Egon F. Stricker behandelt Sie weiterhin persönlich – gemeinsam mit einem erweiterten Team aus Fachärzten für Orthopädie, Unfallchirurgie und Sportmedizin. Alle Leistungen, Termine und Informationen finden Sie jetzt gebündelt auf unserer neuen Praxis-Website.
           </p>
 
-          <ul class="ok-features ok-features--light">
+          <ul class="ok-features">
             <li>
               <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M16.5 5.5L8 14L3.5 9.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
               Erweitertes Facharzt-Team
             </li>
             <li>
               <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M16.5 5.5L8 14L3.5 9.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              Zentral am Neumarkt
+              Zentral in der PAN Klinik am Neumarkt
             </li>
             <li>
               <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M16.5 5.5L8 14L3.5 9.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -689,20 +466,21 @@
 
         </div>
 
-        <div class="ok-teaser-b__signature" aria-hidden="true">
-          <span class="ok-teaser-b__signature-dot"></span>
-          <strong>Dr. med. Rudolf Ziolko</strong>
-          <span>Facharzt für Orthopädie</span>
-        </div>
+        <img
+          class="ok-teaser__image"
+          src="https://orthopaedie-koeln.de/wp-content/uploads/Stricker_smal.webp"
+          alt="Dr. med. Egon F. Stricker, Orthopäde im MVZ Orthopädie PAN Klinik Köln"
+          loading="lazy"
+        >
 
       </article>
     </a>
-    <!-- TEASER B END -->
+    <!-- TEASER END -->
 
   </section>
 
   <div class="preview-note">
-    <strong>Hinweise:</strong> Beide Varianten sind self-contained (CSS mit <code>.ok-</code>-Prefix gekapselt). Der gesamte Teaser ist von einem <code>&lt;a&gt;</code>-Tag umschlossen — Klick an beliebiger Stelle öffnet orthopaedie-koeln.de. Für die Stricker-Variante wird nur der Arztname im Heading/Caption/Alt getauscht und das Bild auf <code>Stricker_small.webp</code> geändert (sobald wir das auf orthopaedie-koeln.de haben). Für den Einbau in WordPress: Das gesamte <code>&lt;a&gt;...&lt;/a&gt;</code>-Element zusammen mit dem <code>&lt;style&gt;</code>-Block in ein Custom-HTML- / Code-Widget im Hero einfügen.
+    <strong>Hinweise:</strong> Der Teaser besteht aus einem einzigen äußeren Container (<code>.ok-teaser</code>) mit dem Farbverlauf als Hintergrund. Das Arztbild wird direkt als <code>&lt;img&gt;</code> in die rechte Spalte gelegt (kein Wrapper, keine Schatten, keine Caption). Auf Desktop: 50/50-Split, Bild füllt die komplette rechte Spalte bis zur Containerkante, mit gerundeten Ecken oben-links und unten-links (zur Innenseite des Containers). Auf Mobile: Bild oben, maximal quadratisches Format (1:1), alle vier Ecken gerundet. Der gesamte Teaser ist von einem <code>&lt;a&gt;</code>-Tag umschlossen.
   </div>
 
 </div>
