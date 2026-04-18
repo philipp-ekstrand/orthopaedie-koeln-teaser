@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Teaser-Preview · Orthopädie Köln</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ok-primary: #a80012;
+    --ok-primary-hover: #ff1932;
+    --ok-dark: #120204;
+    --ok-body: #544f52;
+    --ok-gray: #e8ebef;
+    --ok-gray-soft: #f4f6f9;
+    --ok-white: #ffffff;
+    --ok-accent: #e7c0ca;
+    --ok-radius-pill: 999px;
+    --ok-radius-card: 28px;
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    font-family: "Urbanist", system-ui, -apple-system, "Segoe UI", sans-serif;
+    color: var(--ok-body);
+    background: #f8f6f4;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  .preview-wrap {
+    padding: 40px 20px;
+    max-width: 1440px;
+    margin: 0 auto;
+  }
+
+  .preview-label {
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #8a8587;
+    margin-bottom: 16px;
+    font-weight: 600;
+  }
+
+  /* === TEASER START === */
+
+  .ok-teaser {
+    font-family: "Urbanist", system-ui, -apple-system, "Segoe UI", sans-serif;
+    background: linear-gradient(135deg, #ffffff 0%, #f4eef0 100%);
+    border-radius: var(--ok-radius-card);
+    padding: 48px;
+    display: grid;
+    grid-template-columns: 1.35fr 1fr;
+    gap: 48px;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 10px 40px -12px rgba(168, 0, 18, 0.12), 0 2px 8px rgba(18, 2, 4, 0.04);
+    border: 1px solid rgba(168, 0, 18, 0.08);
+  }
+
+  .ok-teaser::before {
+    content: "";
+    position: absolute;
+    top: -120px;
+    right: -120px;
+    width: 360px;
+    height: 360px;
+    background: radial-gradient(circle, rgba(168, 0, 18, 0.08) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+
+  .ok-teaser__content {
+    position: relative;
+    z-index: 2;
+    min-width: 0;
+  }
+
+  .ok-teaser > * { min-width: 0; }
+
+  .ok-teaser__badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(168, 0, 18, 0.08);
+    color: var(--ok-primary);
+    padding: 8px 16px;
+    border-radius: var(--ok-radius-pill);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+
+  .ok-teaser__badge-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--ok-primary);
+    box-shadow: 0 0 0 4px rgba(168, 0, 18, 0.15);
+    animation: ok-pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes ok-pulse {
+    0%, 100% { box-shadow: 0 0 0 4px rgba(168, 0, 18, 0.15); }
+    50% { box-shadow: 0 0 0 8px rgba(168, 0, 18, 0.05); }
+  }
+
+  .ok-teaser__heading {
+    font-size: clamp(24px, 3.4vw, 44px);
+    font-weight: 600;
+    line-height: 1.15;
+    color: var(--ok-dark);
+    margin: 0 0 20px 0;
+    letter-spacing: -0.01em;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    hyphens: auto;
+  }
+
+  .ok-teaser__heading strong {
+    color: var(--ok-primary);
+    font-weight: 600;
+  }
+
+  .ok-teaser__text {
+    font-size: clamp(16px, 1.15vw, 18px);
+    line-height: 1.6;
+    color: var(--ok-body);
+    margin: 0 0 32px 0;
+    max-width: 560px;
+  }
+
+  .ok-teaser__features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 24px;
+    margin: 0 0 32px 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .ok-teaser__feature {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--ok-dark);
+  }
+
+  .ok-teaser__feature svg {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    color: var(--ok-primary);
+  }
+
+  .ok-teaser__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    align-items: center;
+  }
+
+  .ok-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 16px 32px;
+    border-radius: var(--ok-radius-pill);
+    font-family: inherit;
+    font-size: 17px;
+    font-weight: 600;
+    text-decoration: none;
+    line-height: 1.2;
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    border: none;
+    text-align: center;
+  }
+
+  .ok-btn--primary {
+    background: var(--ok-primary);
+    color: var(--ok-white);
+    box-shadow: 0 4px 14px -2px rgba(168, 0, 18, 0.35);
+  }
+
+  .ok-btn--primary:hover,
+  .ok-btn--primary:focus-visible {
+    background: var(--ok-primary-hover);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px -2px rgba(168, 0, 18, 0.45);
+    outline: none;
+  }
+
+  .ok-btn--primary svg {
+    width: 18px;
+    height: 18px;
+    transition: transform 0.25s;
+  }
+
+  .ok-btn--primary:hover svg {
+    transform: translateX(3px);
+  }
+
+  .ok-btn--ghost {
+    background: transparent;
+    color: var(--ok-dark);
+    padding: 16px 8px;
+    position: relative;
+  }
+
+  .ok-btn--ghost::after {
+    content: "";
+    position: absolute;
+    left: 8px;
+    right: 8px;
+    bottom: 10px;
+    height: 1.5px;
+    background: var(--ok-dark);
+    transform: scaleX(0.85);
+    transform-origin: left;
+    transition: transform 0.3s;
+  }
+
+  .ok-btn--ghost:hover::after {
+    transform: scaleX(1);
+  }
+
+  .ok-btn--ghost:hover {
+    color: var(--ok-primary);
+  }
+
+  .ok-btn--ghost:hover::after {
+    background: var(--ok-primary);
+  }
+
+  /* Visual side */
+  .ok-teaser__visual {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+  }
+
+  .ok-teaser__card {
+    background: var(--ok-white);
+    border-radius: 20px;
+    padding: 32px 28px;
+    box-shadow: 0 20px 50px -15px rgba(18, 2, 4, 0.18), 0 2px 6px rgba(18, 2, 4, 0.04);
+    width: 100%;
+    max-width: 360px;
+    text-align: center;
+    position: relative;
+    border: 1px solid rgba(18, 2, 4, 0.04);
+  }
+
+  .ok-teaser__logo-icon {
+    width: 72px;
+    height: 72px;
+    margin: 0 auto 16px auto;
+    background: var(--ok-primary);
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 24px -6px rgba(168, 0, 18, 0.4);
+  }
+
+  .ok-teaser__logo-icon svg {
+    width: 40px;
+    height: 40px;
+    color: var(--ok-white);
+  }
+
+  .ok-teaser__brand {
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #8a8587;
+    font-weight: 600;
+    margin: 0 0 6px 0;
+  }
+
+  .ok-teaser__brand-name {
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--ok-dark);
+    line-height: 1.25;
+    margin: 0 0 16px 0;
+  }
+
+  .ok-teaser__brand-meta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(18, 2, 4, 0.08);
+    font-size: 14px;
+    color: var(--ok-body);
+  }
+
+  .ok-teaser__brand-meta svg {
+    width: 16px;
+    height: 16px;
+    color: var(--ok-primary);
+  }
+
+  /* Compact variant for tight hero slots */
+  .ok-teaser--compact {
+    padding: 32px 36px;
+    grid-template-columns: 1fr auto;
+    gap: 32px;
+  }
+
+  .ok-teaser--compact .ok-teaser__heading {
+    font-size: clamp(22px, 2.4vw, 30px);
+  }
+
+  .ok-teaser--compact .ok-teaser__text {
+    font-size: 16px;
+  }
+
+  /* === RESPONSIVE === */
+  @media (max-width: 900px) {
+    .ok-teaser {
+      grid-template-columns: 1fr;
+      gap: 32px;
+      padding: 36px 28px;
+    }
+
+    .ok-teaser__visual {
+      order: -1;
+    }
+
+    .ok-teaser__card {
+      max-width: 320px;
+    }
+
+    .ok-teaser__heading {
+      font-size: 28px;
+    }
+
+    .ok-teaser__features {
+      gap: 10px 20px;
+    }
+  }
+
+  @media (max-width: 560px) {
+    .ok-teaser {
+      padding: 28px 22px;
+      border-radius: 20px;
+    }
+
+    .ok-teaser__heading {
+      font-size: 24px;
+    }
+
+    .ok-teaser__text {
+      font-size: 15px;
+    }
+
+    .ok-teaser__actions {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 12px;
+    }
+
+    .ok-btn {
+      justify-content: center;
+      width: 100%;
+      padding: 14px 24px;
+      font-size: 16px;
+    }
+
+    .ok-btn--ghost {
+      padding: 12px 0;
+    }
+
+    .ok-btn--ghost::after {
+      display: none;
+    }
+
+    .ok-teaser__card {
+      padding: 24px 20px;
+    }
+
+    .ok-teaser__feature {
+      font-size: 14px;
+    }
+  }
+
+  /* === PREVIEW FRAME STYLING (nur für Preview-Seite, nicht Teil des Teasers) === */
+  .preview-frame {
+    background: #ffffff;
+    padding: 60px 40px;
+    border-radius: 32px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  }
+
+  .preview-frame + .preview-frame {
+    margin-top: 40px;
+  }
+
+  .preview-context {
+    max-width: 720px;
+    margin: 60px auto 0 auto;
+    padding: 32px;
+    background: #fffdf8;
+    border: 1px dashed #d9d4cc;
+    border-radius: 20px;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #6b6560;
+  }
+
+  .preview-context strong {
+    color: var(--ok-dark);
+    font-weight: 600;
+  }
+</style>
+</head>
+<body>
+
+<div class="preview-wrap">
+
+  <div class="preview-label">Preview · Teaser-Widget für Hero-Einbau auf ziolko.de / orthopaedie-stricker.de</div>
+
+  <div class="preview-frame">
+
+    <!-- TEASER START — copy everything between these markers -->
+    <section class="ok-teaser" aria-labelledby="ok-teaser-heading">
+
+      <div class="ok-teaser__content">
+
+        <span class="ok-teaser__badge">
+          <span class="ok-teaser__badge-dot" aria-hidden="true"></span>
+          Wir sind umgezogen
+        </span>
+
+        <h2 class="ok-teaser__heading" id="ok-teaser-heading">
+          Dr. Ziolko ist jetzt Teil des<br>
+          <strong>MVZ Orthopädie · PAN Klinik Köln</strong>
+        </h2>
+
+        <p class="ok-teaser__text">
+          Dr. med. Rudolf Ziolko behandelt Sie weiterhin persönlich – gemeinsam mit einem erweiterten Team aus Fachärzten für Orthopädie, Unfallchirurgie und Sportmedizin. Alle Leistungen, Termine und Informationen finden Sie jetzt gebündelt auf unserer neuen Praxis-Website.
+        </p>
+
+        <ul class="ok-teaser__features" aria-label="Vorteile der neuen Praxis">
+          <li class="ok-teaser__feature">
+            <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
+              <path d="M16.5 5.5L8 14L3.5 9.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Erweitertes Facharzt-Team
+          </li>
+          <li class="ok-teaser__feature">
+            <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
+              <path d="M16.5 5.5L8 14L3.5 9.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Zentral in der PAN Klinik am Neumarkt
+          </li>
+          <li class="ok-teaser__feature">
+            <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
+              <path d="M16.5 5.5L8 14L3.5 9.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Alle Kassen &amp; Privat
+          </li>
+        </ul>
+
+        <div class="ok-teaser__actions">
+          <a href="https://orthopaedie-koeln.de/" class="ok-btn ok-btn--primary" rel="noopener">
+            Zur neuen Praxis-Website
+            <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
+              <path d="M4 10H16M16 10L11 5M16 10L11 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+          <a href="https://orthopaedie-koeln.de/#kontakt" class="ok-btn ok-btn--ghost">
+            Termin vereinbaren
+          </a>
+        </div>
+
+      </div>
+
+      <div class="ok-teaser__visual" aria-hidden="true">
+        <div class="ok-teaser__card">
+          <div class="ok-teaser__logo-icon">
+            <!-- Stilisiertes Kreuz-Icon im PAN-Klinik-Stil -->
+            <svg viewBox="0 0 40 40" fill="none" aria-hidden="true">
+              <path d="M16 4H24V16H36V24H24V36H16V24H4V16H16V4Z" fill="currentColor"/>
+            </svg>
+          </div>
+          <p class="ok-teaser__brand">MVZ Orthopädie</p>
+          <p class="ok-teaser__brand-name">PAN Klinik am Neumarkt</p>
+          <div class="ok-teaser__brand-meta">
+            <svg viewBox="0 0 20 20" fill="none">
+              <path d="M10 11a2 2 0 100-4 2 2 0 000 4z" stroke="currentColor" stroke-width="1.6"/>
+              <path d="M10 18s6-5.5 6-10a6 6 0 10-12 0c0 4.5 6 10 6 10z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+            </svg>
+            Zeppelinstraße 1 · 50667 Köln
+          </div>
+        </div>
+      </div>
+
+    </section>
+    <!-- TEASER END -->
+
+  </div>
+
+  <div class="preview-context">
+    <strong>Hinweis zur Einbettung:</strong> Das Teaser-Widget ist self-contained — CSS und HTML sind im Element gekapselt (Prefix <code>.ok-teaser</code>). Einziger externer Request: Google Fonts „Urbanist&#8220;. Beim Einbau auf ziolko.de bzw. orthopaedie-stricker.de kann der gesamte Block zwischen <code>TEASER START</code> und <code>TEASER END</code> + der <code>&lt;style&gt;</code>-Block in ein Custom-HTML- / Code-Widget im Hero eingefügt werden. Für die Stricker-Variante wird nur der Arztname im Heading angepasst.
+  </div>
+
+</div>
+
+</body>
+</html>
