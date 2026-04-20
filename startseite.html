@@ -1,0 +1,1060 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Content-Preview · Startseite · Orthopädie Köln</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ok-primary: #a80012;
+    --ok-primary-hover: #ff1932;
+    --ok-dark: #120204;
+    --ok-body: #544f52;
+    --ok-muted: #8a8587;
+    --ok-white: #ffffff;
+    --ok-beige: #f2f0ec;
+    --ok-border: #e5e0d8;
+    --ok-radius-card: 28px;
+    --ok-radius-pill: 999px;
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    font-family: "Urbanist", system-ui, -apple-system, "Segoe UI", sans-serif;
+    color: var(--ok-body);
+    background: var(--ok-beige);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    line-height: 1.6;
+  }
+
+  /* ---------- Preview-Overlay (oben und Notizen) ---------- */
+  .preview-banner {
+    background: #fff3e0;
+    border-bottom: 1px solid #f4d488;
+    padding: 16px 24px;
+    font-size: 13px;
+    color: #5a4100;
+    text-align: center;
+    line-height: 1.5;
+  }
+
+  .preview-banner strong { color: #3a2800; }
+
+  .preview-banner a {
+    color: #3a2800;
+    text-decoration: underline;
+  }
+
+  /* ---------- Keyword-Box oben (Referenzinfos) ---------- */
+  .keyword-box {
+    max-width: 1200px;
+    margin: 32px auto 0;
+    padding: 28px 32px;
+    background: var(--ok-white);
+    border: 1px solid var(--ok-border);
+    border-radius: var(--ok-radius-card);
+    font-size: 14px;
+  }
+
+  .keyword-box h2 {
+    margin: 0 0 16px 0;
+    font-size: 15px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ok-muted);
+    font-weight: 600;
+  }
+
+  .keyword-box .keyword-row {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+  }
+
+  .keyword-box .keyword-label {
+    flex: 0 0 130px;
+    color: var(--ok-muted);
+    font-size: 13px;
+    padding-top: 4px;
+  }
+
+  .keyword-box .keyword-tags {
+    flex: 1;
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+
+  .keyword-box .kw {
+    background: #f6eceb;
+    color: #6c0d18;
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 500;
+  }
+
+  .keyword-box .kw.secondary {
+    background: #edeae3;
+    color: #54504a;
+  }
+
+  .keyword-box .kw.avoid {
+    background: #ffe4e4;
+    color: #8a1a1a;
+    text-decoration: line-through;
+  }
+
+  /* ---------- Page Wrap ---------- */
+  .site {
+    max-width: 1200px;
+    margin: 32px auto 80px;
+    background: var(--ok-white);
+    border-radius: var(--ok-radius-card);
+    overflow: hidden;
+    box-shadow: 0 2px 24px rgba(18,2,4,0.06);
+  }
+
+  /* ---------- Simulated Nav ---------- */
+  .nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 36px;
+    border-bottom: 1px solid var(--ok-border);
+    font-size: 14px;
+  }
+
+  .nav-brand {
+    font-weight: 700;
+    color: var(--ok-dark);
+    font-size: 16px;
+    letter-spacing: -0.01em;
+  }
+
+  .nav-brand .accent { color: var(--ok-primary); }
+
+  .nav-links {
+    display: flex;
+    gap: 28px;
+    color: var(--ok-dark);
+  }
+
+  .nav-cta {
+    background: var(--ok-primary);
+    color: var(--ok-white);
+    padding: 10px 20px;
+    border-radius: var(--ok-radius-pill);
+    font-weight: 600;
+    font-size: 13px;
+  }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    padding: 80px 60px 64px;
+    background: linear-gradient(180deg, #fafaf7 0%, var(--ok-white) 100%);
+  }
+
+  .hero-eyebrow {
+    display: inline-block;
+    background: #f6eceb;
+    color: var(--ok-primary);
+    padding: 6px 16px;
+    border-radius: var(--ok-radius-pill);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+
+  .hero h1 {
+    font-size: 48px;
+    font-weight: 600;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: var(--ok-dark);
+    margin: 0 0 24px 0;
+    max-width: 820px;
+  }
+
+  .hero h1 .highlight { color: var(--ok-primary); }
+
+  .hero-lead {
+    font-size: 19px;
+    color: var(--ok-body);
+    max-width: 720px;
+    line-height: 1.6;
+    margin: 0 0 32px 0;
+  }
+
+  .hero-ctas {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 28px;
+    border-radius: var(--ok-radius-pill);
+    font-weight: 600;
+    font-size: 15px;
+    text-decoration: none;
+    transition: all 0.2s;
+    border: 1.5px solid transparent;
+    cursor: pointer;
+  }
+
+  .btn-primary {
+    background: var(--ok-primary);
+    color: var(--ok-white);
+  }
+
+  .btn-primary:hover { background: var(--ok-primary-hover); }
+
+  .btn-outline {
+    background: transparent;
+    color: var(--ok-dark);
+    border-color: var(--ok-border);
+  }
+
+  .btn-outline:hover {
+    border-color: var(--ok-dark);
+  }
+
+  /* ---------- Trust-Leiste ---------- */
+  .trust {
+    background: var(--ok-beige);
+    padding: 40px 60px;
+    border-top: 1px solid var(--ok-border);
+    border-bottom: 1px solid var(--ok-border);
+  }
+
+  .trust-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+  }
+
+  .trust-item strong {
+    display: block;
+    font-size: 22px;
+    color: var(--ok-dark);
+    font-weight: 600;
+    line-height: 1.2;
+    margin-bottom: 6px;
+  }
+
+  .trust-item span {
+    font-size: 14px;
+    color: var(--ok-muted);
+  }
+
+  /* ---------- Section Common ---------- */
+  section.content {
+    padding: 72px 60px;
+  }
+
+  .section-eyebrow {
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ok-primary);
+    font-weight: 600;
+    margin: 0 0 12px 0;
+  }
+
+  .section-title {
+    font-size: 36px;
+    font-weight: 600;
+    color: var(--ok-dark);
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    margin: 0 0 16px 0;
+    max-width: 820px;
+  }
+
+  .section-lead {
+    font-size: 17px;
+    color: var(--ok-body);
+    max-width: 760px;
+    margin: 0 0 40px 0;
+  }
+
+  .section-alt { background: var(--ok-beige); }
+
+  /* ---------- Leistungsüberblick ---------- */
+  .services {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .service-card {
+    background: var(--ok-white);
+    border: 1px solid var(--ok-border);
+    border-radius: 20px;
+    padding: 32px;
+  }
+
+  .service-card h3 {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--ok-dark);
+    margin: 0 0 12px 0;
+  }
+
+  .service-card p {
+    font-size: 15px;
+    color: var(--ok-body);
+    margin: 0;
+  }
+
+  .service-icon {
+    width: 44px;
+    height: 44px;
+    background: #f6eceb;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    margin-bottom: 16px;
+  }
+
+  /* ---------- Körperregionen-Grid ---------- */
+  .regions {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+  }
+
+  .region-card {
+    background: var(--ok-white);
+    border: 1px solid var(--ok-border);
+    border-radius: 20px;
+    padding: 24px;
+    text-decoration: none;
+    color: var(--ok-dark);
+    display: flex;
+    flex-direction: column;
+    transition: all 0.2s;
+  }
+
+  .region-card:hover {
+    border-color: var(--ok-primary);
+    transform: translateY(-2px);
+  }
+
+  .region-card h3 {
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0 0 8px 0;
+  }
+
+  .region-card .region-anchor {
+    font-size: 13px;
+    color: var(--ok-primary);
+    font-weight: 500;
+    margin-bottom: 12px;
+  }
+
+  .region-card p {
+    font-size: 14px;
+    color: var(--ok-body);
+    margin: 0 0 12px 0;
+    flex: 1;
+  }
+
+  .region-card .arrow {
+    color: var(--ok-primary);
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  /* ---------- USPs ---------- */
+  .usps {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+  }
+
+  .usp {
+    padding: 28px;
+    border-left: 3px solid var(--ok-primary);
+    background: var(--ok-white);
+    border-radius: 0 16px 16px 0;
+  }
+
+  .usp h3 {
+    font-size: 19px;
+    font-weight: 600;
+    color: var(--ok-dark);
+    margin: 0 0 10px 0;
+  }
+
+  .usp p {
+    font-size: 15px;
+    color: var(--ok-body);
+    margin: 0;
+  }
+
+  /* ---------- Ärzte-Team ---------- */
+  .team {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+
+  .doctor {
+    background: var(--ok-white);
+    border: 1px solid var(--ok-border);
+    border-radius: 20px;
+    padding: 24px;
+  }
+
+  .doctor .avatar {
+    width: 64px;
+    height: 64px;
+    background: linear-gradient(135deg, #f6eceb 0%, #fbebe8 100%);
+    border-radius: 50%;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--ok-primary);
+  }
+
+  .doctor h3 {
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--ok-dark);
+    margin: 0 0 6px 0;
+  }
+
+  .doctor .spec {
+    font-size: 13px;
+    color: var(--ok-muted);
+    margin-bottom: 10px;
+  }
+
+  .doctor p {
+    font-size: 14px;
+    color: var(--ok-body);
+    margin: 0;
+  }
+
+  /* ---------- FAQ ---------- */
+  .faqs {
+    max-width: 860px;
+    margin: 0 auto;
+  }
+
+  .faq {
+    background: var(--ok-white);
+    border: 1px solid var(--ok-border);
+    border-radius: 16px;
+    margin-bottom: 12px;
+    padding: 24px 28px;
+  }
+
+  .faq h3 {
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--ok-dark);
+    margin: 0 0 10px 0;
+  }
+
+  .faq p {
+    font-size: 15px;
+    color: var(--ok-body);
+    margin: 0;
+  }
+
+  /* ---------- Stammzellen-Highlight ---------- */
+  .stem {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 48px;
+    align-items: center;
+    background: var(--ok-dark);
+    color: var(--ok-white);
+    padding: 56px 60px;
+    border-radius: 28px;
+  }
+
+  .stem h3 {
+    font-size: 28px;
+    font-weight: 600;
+    color: var(--ok-white);
+    margin: 0 0 16px 0;
+    line-height: 1.25;
+  }
+
+  .stem p {
+    font-size: 16px;
+    color: #cbc4bf;
+    margin: 0 0 20px 0;
+  }
+
+  .stem .stem-kpis {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .stem-kpi strong {
+    display: block;
+    font-size: 28px;
+    font-weight: 600;
+    color: var(--ok-white);
+    line-height: 1.2;
+  }
+
+  .stem-kpi span {
+    font-size: 13px;
+    color: #9a918c;
+  }
+
+  /* ---------- Kontakt / Anfahrt ---------- */
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+  }
+
+  .contact-card {
+    background: var(--ok-white);
+    border: 1px solid var(--ok-border);
+    border-radius: 20px;
+    padding: 36px;
+  }
+
+  .contact-card h3 {
+    font-size: 22px;
+    color: var(--ok-dark);
+    font-weight: 600;
+    margin: 0 0 16px 0;
+  }
+
+  .contact-card .address {
+    font-size: 16px;
+    color: var(--ok-dark);
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+
+  .contact-card .phone {
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--ok-primary);
+    margin-bottom: 20px;
+    display: block;
+  }
+
+  .contact-card dl {
+    margin: 0;
+    font-size: 15px;
+  }
+
+  .contact-card dl div {
+    display: flex;
+    justify-content: space-between;
+    padding: 6px 0;
+    border-bottom: 1px solid var(--ok-border);
+  }
+
+  .contact-card dl div:last-child { border-bottom: none; }
+
+  .contact-card dt { color: var(--ok-muted); }
+  .contact-card dd { margin: 0; color: var(--ok-dark); font-weight: 500; }
+
+  /* ---------- Final Preview-Footer (Notizen) ---------- */
+  .notes {
+    max-width: 1200px;
+    margin: 48px auto 80px;
+    padding: 36px;
+    background: #1a0d10;
+    color: #e8e0dc;
+    border-radius: 24px;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .notes h2 {
+    margin: 0 0 20px 0;
+    font-size: 16px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #ffb0b8;
+    font-weight: 600;
+  }
+
+  .notes ul {
+    margin: 0 0 16px 0;
+    padding-left: 20px;
+  }
+
+  .notes li {
+    margin-bottom: 6px;
+  }
+
+  .notes .changes-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-top: 24px;
+  }
+
+  .notes .col h3 {
+    font-size: 13px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #ffb0b8;
+    margin: 0 0 10px 0;
+  }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 900px) {
+    .hero { padding: 48px 24px; }
+    .hero h1 { font-size: 32px; }
+    .trust { padding: 28px 24px; }
+    .trust-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+    section.content { padding: 48px 24px; }
+    .section-title { font-size: 26px; }
+    .services, .usps, .team { grid-template-columns: 1fr !important; }
+    .regions { grid-template-columns: repeat(2, 1fr); }
+    .stem { grid-template-columns: 1fr; padding: 36px 24px; }
+    .contact-grid { grid-template-columns: 1fr; }
+    .nav { flex-direction: column; gap: 12px; padding: 16px 24px; }
+    .nav-links { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Preview-Banner -->
+<div class="preview-banner">
+  <strong>Content-Preview · Startseite (Welle 1)</strong> · keyword-optimierter Entwurf zur Freigabe.
+  Grob-Nachbau im Client-Design · nicht die finale Live-Version ·
+  <a href="https://orthopaedie-koeln.de/" target="_blank">Aktuelle Live-Seite zum Vergleich</a>
+</div>
+
+<!-- Keyword-Mapping-Box -->
+<div class="keyword-box">
+  <h2>Keyword-Mapping · Startseite</h2>
+  <div class="keyword-row">
+    <div class="keyword-label">Primär</div>
+    <div class="keyword-tags">
+      <span class="kw">Orthopäde Köln</span>
+      <span class="kw">Orthopädie Köln</span>
+      <span class="kw">PAN Klinik am Neumarkt</span>
+    </div>
+  </div>
+  <div class="keyword-row">
+    <div class="keyword-label">Sekundär (Neumarkt Quick Wins, Pos 9–14)</div>
+    <div class="keyword-tags">
+      <span class="kw secondary">Orthopäde am Neumarkt</span>
+      <span class="kw secondary">Orthopädie am Neumarkt</span>
+      <span class="kw secondary">Orthopädie Köln Neumarkt</span>
+      <span class="kw secondary">PAN Klinik Orthopädie</span>
+    </div>
+  </div>
+  <div class="keyword-row">
+    <div class="keyword-label">Tertiär</div>
+    <div class="keyword-tags">
+      <span class="kw secondary">MVZ Orthopädie Köln</span>
+      <span class="kw secondary">Sportmedizin Köln</span>
+      <span class="kw secondary">Unfallchirurgie Köln</span>
+      <span class="kw secondary">Gelenkersatz Köln</span>
+    </div>
+  </div>
+  <div class="keyword-row">
+    <div class="keyword-label">Nicht mehr auf Startseite (Kannibalisierung)</div>
+    <div class="keyword-tags">
+      <span class="kw avoid">Knieschmerzen Köln</span>
+      <span class="kw avoid">Schulterschmerzen Köln</span>
+      <span class="kw avoid">Hüftschmerzen Köln</span>
+      <span class="kw avoid">Rückenschmerzen Köln</span>
+    </div>
+  </div>
+  <p style="margin: 16px 0 0 0; font-size: 13px; color: var(--ok-muted);">
+    Symptom-Keywords wandern in die Körperregion-Seiten. Auf der Startseite tauchen sie nur noch
+    als Anker-Text in internen Links auf — das löst die Kannibalisierung (siehe GSC-Audit Sektion 5).
+  </p>
+</div>
+
+<!-- Simulierte Seite -->
+<div class="site">
+
+  <!-- Nav -->
+  <nav class="nav">
+    <div class="nav-brand">Orthopädie <span class="accent">Köln</span></div>
+    <div class="nav-links">
+      <span>Körperregionen</span>
+      <span>Krankheitsbilder</span>
+      <span>Therapien</span>
+      <span>Ärzte</span>
+      <span>Über uns</span>
+    </div>
+    <span class="nav-cta">Termin buchen</span>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <span class="hero-eyebrow">MVZ Orthopädie · Unfallchirurgie · Sportmedizin</span>
+    <h1>
+      Ihr <span class="highlight">Orthopäde in Köln</span> —
+      direkt in der PAN Klinik am&nbsp;Neumarkt
+    </h1>
+    <p class="hero-lead">
+      Die Orthopädie Köln in der PAN Klinik am Neumarkt bündelt vier Fachärzte für Orthopädie,
+      Unfallchirurgie und Sportmedizin an einem Standort. Vom ersten Termin bis zur Nachsorge
+      betreut Sie derselbe Arzt — mit präziser Diagnostik, modernen konservativen Verfahren
+      und auf Wunsch roboterassistiertem Gelenkersatz in der angeschlossenen Klinik.
+    </p>
+    <div class="hero-ctas">
+      <a href="#" class="btn btn-primary">Termin vereinbaren</a>
+      <a href="#" class="btn btn-outline">Zu den Ärzten</a>
+    </div>
+  </section>
+
+  <!-- Trust-Leiste -->
+  <div class="trust">
+    <div class="trust-grid">
+      <div class="trust-item">
+        <strong>4 Fachärzte</strong>
+        <span>an einem Standort</span>
+      </div>
+      <div class="trust-item">
+        <strong>Am Neumarkt Köln</strong>
+        <span>Zeppelinstraße 1, 50667</span>
+      </div>
+      <div class="trust-item">
+        <strong>PAN Klinik</strong>
+        <span>ambulant und stationär</span>
+      </div>
+      <div class="trust-item">
+        <strong>4,4 ★ · Google</strong>
+        <span>43 Bewertungen</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Leistungsüberblick -->
+  <section class="content">
+    <p class="section-eyebrow">Leistungsspektrum</p>
+    <h2 class="section-title">Was die Orthopädie Köln in der PAN Klinik für Sie leistet</h2>
+    <p class="section-lead">
+      Von der ersten Untersuchung bis zur gezielten Therapie — unser Leistungsspektrum deckt
+      die gesamte moderne Orthopädie und Unfallchirurgie ab. Privat- und Kassenpatient:innen
+      sind gleichermaßen willkommen.
+    </p>
+    <div class="services">
+      <div class="service-card">
+        <div class="service-icon">◎</div>
+        <h3>Präzise Diagnostik</h3>
+        <p>Hochauflösende Sonographie, digitales Röntgen und enge Kooperation mit der MRT-Abteilung der PAN Klinik — Ursachenklärung statt Symptombehandlung.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">↻</div>
+        <h3>Konservative Therapie</h3>
+        <p>Manuelle Medizin, Stoßwelle, ACP- und PRP-Therapie, Hyaluron-Injektionen und medikamentöse Schmerztherapie. Operieren nur, wenn es wirklich nötig ist.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">✚</div>
+        <h3>Operative Therapie</h3>
+        <p>Arthroskopische Eingriffe, Kreuzbandplastik, roboterassistierte Hüft- und Knieendoprothetik. Viele Operationen ambulant in der PAN Klinik am Neumarkt.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Körperregionen-Grid (Kannibalisierungs-Lösung: Symptom-Anchor zu Körperregion) -->
+  <section class="content section-alt">
+    <p class="section-eyebrow">Ihr Spezialist für</p>
+    <h2 class="section-title">Schulter, Knie, Hüfte, Rücken und mehr — in Köln behandelt</h2>
+    <p class="section-lead">
+      Finden Sie über die passende Körperregion direkt den Weg zu unseren Spezialistinnen
+      und Spezialisten. Jede Region wird von einem Facharzt mit entsprechendem Schwerpunkt betreut.
+    </p>
+    <div class="regions">
+      <a href="/koerperregionen/schulter" class="region-card">
+        <h3>Schulter</h3>
+        <div class="region-anchor">Bei Schulterschmerzen → Schulterspezialist Köln</div>
+        <p>Impingement, Kalkschulter, Rotatorenmanschettenriss, Frozen Shoulder.</p>
+        <span class="arrow">Zur Schulter-Seite →</span>
+      </a>
+      <a href="/koerperregionen/knie" class="region-card">
+        <h3>Knie</h3>
+        <div class="region-anchor">Bei Knieschmerzen → Kniespezialist Köln</div>
+        <p>Meniskus, Kreuzband, Arthrose, Knieendoprothetik roboterassistiert.</p>
+        <span class="arrow">Zur Knie-Seite →</span>
+      </a>
+      <a href="/koerperregionen/becken-huefte" class="region-card">
+        <h3>Becken &amp; Hüfte</h3>
+        <div class="region-anchor">Bei Hüftschmerzen → Hüftspezialist Köln</div>
+        <p>Hüftarthrose, Impingement, Hüftendoprothese minimalinvasiv.</p>
+        <span class="arrow">Zur Hüft-Seite →</span>
+      </a>
+      <a href="/koerperregionen/ruecken-wirbelsaeule" class="region-card">
+        <h3>Rücken &amp; Wirbelsäule</h3>
+        <div class="region-anchor">Bei Rückenschmerzen → Rückenspezialist Köln</div>
+        <p>Bandscheibenvorfall, CT-gestützte Infiltrationen, manuelle Medizin.</p>
+        <span class="arrow">Zur Rücken-Seite →</span>
+      </a>
+      <a href="/koerperregionen/fuss-sprunggelenk" class="region-card">
+        <h3>Fuß &amp; Sprunggelenk</h3>
+        <div class="region-anchor">Bei Fußschmerzen → Fußspezialist Köln</div>
+        <p>Bänderriss, Fersensporn, Hallux valgus, Sprunggelenksarthrose.</p>
+        <span class="arrow">Zur Fuß-Seite →</span>
+      </a>
+      <a href="/koerperregionen/ellenbogen-arm" class="region-card">
+        <h3>Ellenbogen &amp; Arm</h3>
+        <div class="region-anchor">Ellenbogen-Orthopäde Köln</div>
+        <p>Tennis-/Golferarm, Schleimbeutelentzündung, Nervenengpass-Syndrome.</p>
+        <span class="arrow">Zur Ellenbogen-Seite →</span>
+      </a>
+      <a href="/koerperregionen/hand-handgelenk" class="region-card">
+        <h3>Hand &amp; Handgelenk</h3>
+        <div class="region-anchor">Handspezialist Köln</div>
+        <p>Karpaltunnel, Rhizarthrose, Ganglion, Handgelenksarthroskopie.</p>
+        <span class="arrow">Zur Hand-Seite →</span>
+      </a>
+      <a href="/koerperregionen" class="region-card" style="background: var(--ok-dark); color: var(--ok-white); border-color: var(--ok-dark);">
+        <h3 style="color: var(--ok-white);">Alle Körperregionen</h3>
+        <div class="region-anchor" style="color: #ffb0b8;">Übersicht aller Spezialgebiete</div>
+        <p style="color: #cbc4bf;">Gesamtes Leistungsspektrum der Orthopädie Köln im Überblick.</p>
+        <span class="arrow" style="color: #ffb0b8;">Zur Übersicht →</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- USPs -->
+  <section class="content">
+    <p class="section-eyebrow">Das macht uns aus</p>
+    <h2 class="section-title">Warum Patient:innen in Köln zu uns kommen</h2>
+    <div class="usps">
+      <div class="usp">
+        <h3>Spezialisierung statt Generalistentum</h3>
+        <p>Jede Körperregion wird vom Arzt mit entsprechendem Schwerpunkt behandelt — das hebt die Qualität von Diagnose und Therapie messbar.</p>
+      </div>
+      <div class="usp">
+        <h3>Ein Arzt begleitet Sie — auch bei OP</h3>
+        <p>Vom Erstgespräch über Diagnostik und Operation bis zur Nachsorge bleibt Ihr Facharzt an Ihrer Seite. Kein Arztwechsel, keine Informationsverluste.</p>
+      </div>
+      <div class="usp">
+        <h3>Moderne Verfahren mit Augenmaß</h3>
+        <p>Wir kombinieren klassische konservative Verfahren mit Orthobiologie (ACP, PRP, Stammzellen) und roboterassistierter Endoprothetik — eingesetzt nur dort, wo es medizinisch Sinn ergibt.</p>
+      </div>
+      <div class="usp">
+        <h3>PAN Klinik direkt im Haus</h3>
+        <p>Viele Eingriffe, die anderswo stationär wären, sind hier ambulant möglich. Sie bleiben in vertrauter Umgebung — ohne Krankenhausaufenthalt.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team -->
+  <section class="content section-alt">
+    <p class="section-eyebrow">Ihr Ärzteteam</p>
+    <h2 class="section-title">Vier Fachärzte in der PAN Klinik am Neumarkt</h2>
+    <p class="section-lead">
+      Unterschiedliche Spezialisierungen, gemeinsames Qualitätsverständnis. So findet jede
+      Patientin, jeder Patient den passenden Ansprechpartner.
+    </p>
+    <div class="team">
+      <div class="doctor">
+        <div class="avatar">PP</div>
+        <h3>Prof. Dr. Peter Pennekamp</h3>
+        <div class="spec">Spezielle Orthopädische Chirurgie · Endoprothetik</div>
+        <p>Minimalinvasive Hüft- und Knieendoprothetik, roboterassistierte Implantation, Fuß- und Unfallchirurgie.</p>
+      </div>
+      <div class="doctor">
+        <div class="avatar">SS</div>
+        <h3>Dr. Simone Stockhausen</h3>
+        <div class="spec">Manuelle Medizin · Akupunktur · Sportmedizin</div>
+        <p>Ganzheitliche konservative Orthopädie mit Schwerpunkt auf manueller Therapie und Akupunktur.</p>
+      </div>
+      <div class="doctor">
+        <div class="avatar">RZ</div>
+        <h3>Dr. Rudolf Ziolko</h3>
+        <div class="spec">Arthroskopie · Sportmedizin</div>
+        <p>Schulter, Knie, Ellenbogen. Schwerpunkt auf arthroskopischen Eingriffen und orthobiologischen Therapien.</p>
+      </div>
+      <div class="doctor">
+        <div class="avatar">ES</div>
+        <h3>Dr. Egon F. Stricker</h3>
+        <div class="spec">Sportorthopädie · Schulter &amp; Knie</div>
+        <p>Erkrankungen und Verletzungen an Schulter- und Kniegelenken, präzise Diagnostik, persönliche Beratung.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stammzellen-Highlight (versteckter USP laut GSC) -->
+  <section class="content">
+    <div class="stem">
+      <div>
+        <p class="section-eyebrow" style="color: #ffb0b8;">Innovative Therapie</p>
+        <h3>Stammzellentherapie bei Knorpelschäden und Arthrose</h3>
+        <p>
+          Wenn klassische Verfahren ausgeschöpft sind und ein Gelenkersatz noch zu früh wäre,
+          können körpereigene Stammzellen Regenerationsprozesse anstoßen. In Köln gehören wir
+          zu den wenigen orthopädischen Praxen, die diese Therapie strukturiert anbieten —
+          für Knie, Hüfte und ausgewählte weitere Gelenke.
+        </p>
+        <a href="/therapieverfahren/stammzellentherapie" class="btn btn-primary" style="margin-top: 12px;">
+          Zur Stammzellentherapie
+        </a>
+      </div>
+      <div class="stem-kpis">
+        <div class="stem-kpi">
+          <strong>Knie</strong>
+          <span>Knorpelschaden, Früharthrose</span>
+        </div>
+        <div class="stem-kpi">
+          <strong>Hüfte</strong>
+          <span>Frühe Hüftarthrose</span>
+        </div>
+        <div class="stem-kpi">
+          <strong>Ambulant</strong>
+          <span>Kein Klinikaufenthalt</span>
+        </div>
+        <div class="stem-kpi">
+          <strong>Individuell</strong>
+          <span>Indikation im Erstgespräch</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="content section-alt">
+    <p class="section-eyebrow">Häufige Fragen</p>
+    <h2 class="section-title">Was Sie vor dem ersten Termin wissen sollten</h2>
+    <p class="section-lead">
+      Antworten auf die häufigsten Fragen unserer Patient:innen — schnell erfasst, damit Sie mit
+      dem richtigen Bild in die Praxis kommen.
+    </p>
+    <div class="faqs">
+      <div class="faq">
+        <h3>Wo finde ich die Orthopädie in Köln am Neumarkt?</h3>
+        <p>
+          Unsere Praxis liegt direkt in der PAN Klinik am Neumarkt, Zeppelinstraße 1, 50667 Köln.
+          Die KVB-Haltestelle Neumarkt ist in wenigen Gehminuten erreichbar, das Parkhaus der PAN
+          Klinik befindet sich im Haus.
+        </p>
+      </div>
+      <div class="faq">
+        <h3>Sind Sie Kassen- oder Privatpraxis?</h3>
+        <p>
+          Wir behandeln sowohl gesetzlich als auch privat versicherte Patient:innen. Für bestimmte
+          Spezialleistungen (z.B. Stammzellentherapie) gelten abweichende Regelungen — die
+          besprechen wir im Erstgespräch transparent.
+        </p>
+      </div>
+      <div class="faq">
+        <h3>Wie vereinbare ich einen Termin?</h3>
+        <p>
+          Am einfachsten über unser Online-Terminbuchungssystem oder telefonisch. Für akute
+          Beschwerden haben wir tägliche Akut-Slots reserviert, damit Sie nicht lange warten.
+        </p>
+      </div>
+      <div class="faq">
+        <h3>Welche Schwerpunkte haben die Ärzte in der PAN Klinik?</h3>
+        <p>
+          Prof. Dr. Pennekamp ist auf Hüft- und Knieendoprothetik spezialisiert, Dr. Stockhausen
+          auf manuelle Medizin und Akupunktur, Dr. Ziolko auf Arthroskopie und Orthobiologie,
+          Dr. Stricker auf Schulter- und Kniegelenke sowie Sportmedizin.
+        </p>
+      </div>
+      <div class="faq">
+        <h3>Welche modernen Therapieverfahren bieten Sie an?</h3>
+        <p>
+          ACP- und PRP-Therapie, Stammzellentherapie, Hyaluron-Injektionen, Stoßwellentherapie,
+          CT-gestützte Infiltrationen, arthroskopische Eingriffe und roboterassistierte
+          Endoprothetik.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Kontakt/Anfahrt -->
+  <section class="content">
+    <p class="section-eyebrow">Kontakt &amp; Anfahrt</p>
+    <h2 class="section-title">So erreichen Sie Ihre Orthopädie am Neumarkt Köln</h2>
+    <div class="contact-grid">
+      <div class="contact-card">
+        <h3>Adresse &amp; Telefon</h3>
+        <div class="address">
+          MVZ Orthopädie · PAN Klinik<br>
+          Zeppelinstraße 1<br>
+          50667 Köln (am Neumarkt)
+        </div>
+        <span class="phone">0221 · 27 77 04 70</span>
+        <p style="font-size: 14px; color: var(--ok-muted); margin: 0;">
+          Parkhaus direkt im Haus · KVB-Haltestelle Neumarkt in 3 Gehminuten
+        </p>
+      </div>
+      <div class="contact-card">
+        <h3>Sprechzeiten</h3>
+        <dl>
+          <div><dt>Montag – Donnerstag</dt><dd>08:00 – 18:00 Uhr</dd></div>
+          <div><dt>Freitag</dt><dd>08:00 – 15:00 Uhr</dd></div>
+          <div><dt>Samstag &amp; Sonntag</dt><dd>Geschlossen</dd></div>
+          <div><dt>Akutsprechstunde</dt><dd>Täglich, bitte telefonisch</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- Preview-Footer: Änderungen dokumentiert -->
+<div class="notes">
+  <h2>Content-Änderungen gegenüber Live-Seite</h2>
+  <p>
+    Dieser Entwurf ist der keyword-optimierte Grob-Nachbau der Startseite. Kernidee: die
+    Kannibalisierung zwischen Startseite und Körperregion-Seiten auflösen, lokale Neumarkt-Signale
+    stärken und den versteckten USP Stammzellentherapie sichtbarer machen.
+  </p>
+  <div class="changes-grid">
+    <div class="col">
+      <h3>Neu oder stark überarbeitet</h3>
+      <ul>
+        <li>H1 komplett neu: „Orthopäde in Köln — PAN Klinik am Neumarkt" (vorher: „auf höchstem Niveau – direkt im Zentrum Kölns")</li>
+        <li>Trust-Leiste mit Neumarkt-Signal direkt unter Hero (neu)</li>
+        <li>Körperregionen-Grid mit Symptom-Anchor-Text zu den Unterseiten (löst Kannibalisierung)</li>
+        <li>Stammzellentherapie-Highlight als dedizierte Section (vorher versteckt in A-Z-Liste)</li>
+        <li>FAQ-Block mit 5 Fragen (neu, FAQ-Schema-fähig)</li>
+        <li>Neumarkt-Lokal-Begriffe an vier Stellen eingestreut (Quick-Win-Positionen 9–14)</li>
+      </ul>
+    </div>
+    <div class="col">
+      <h3>Bewusst nicht auf der Startseite</h3>
+      <ul>
+        <li>Symptom-Keywords ohne direkten Link-Kontext („Knieschmerzen Köln", „Hüftschmerzen Köln" etc.) — wandern komplett auf die Körperregion-Seiten</li>
+        <li>Krankheitsbilder-A-Z- und Therapieverfahren-A-Z-Listen (können auf Unter-Archivseiten ziehen — reduziert Content-Overload)</li>
+        <li>Lange Kooperationstexte (Mediapark Klinik, Endoprothetik-Section) — können als kurze Kacheln bleiben oder in Aktuelles</li>
+      </ul>
+    </div>
+  </div>
+  <p style="margin-top: 24px; color: #ffb0b8; font-size: 13px;">
+    Preview-URL ist mit <code>noindex, nofollow</code> markiert und wird nicht von Google gecrawlt.
+  </p>
+</div>
+
+</body>
+</html>
