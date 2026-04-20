@@ -129,6 +129,9 @@
 .ok-cta svg { color: #ffffff !important; }
 .ok-teaser-link:hover .ok-cta { background: #ff1932 !important; color: #ffffff !important; }
 .ok-badge { color: #a80012 !important; background: rgba(168, 0, 18, 0.08) !important; }
+.ok-teaser__logos { display: flex; align-items: center; gap: 22px; margin: 0 0 26px 0; flex-wrap: wrap; }
+.ok-teaser__logo { height: 38px; width: auto; display: block !important; box-shadow: none !important; border: 0 !important; border-radius: 0 !important; padding: 0 !important; margin: 0 !important; max-width: 100%; object-fit: contain; }
+.ok-teaser__logos-divider { width: 1px; height: 28px; background: rgba(18, 2, 4, 0.18); display: block; flex-shrink: 0; }
 
 @media (max-width: 900px) {
   .ok-teaser { grid-template-columns: 1fr; }
@@ -154,6 +157,11 @@
         <span class="ok-badge-dot" aria-hidden="true"></span>
         Wir sind umgezogen
       </span>
+      <div class="ok-teaser__logos" aria-label="MVZ Orthopädie · PAN Klinik Köln">
+        <img class="ok-teaser__logo" src="https://orthopaedie-koeln.de/wp-content/uploads/ortheum_logo.webp" alt="MVZ Orthopädie · Ortheum" loading="lazy">
+        <span class="ok-teaser__logos-divider" aria-hidden="true"></span>
+        <img class="ok-teaser__logo" src="https://orthopaedie-koeln.de/wp-content/uploads/PAN-Klinik-Logo.png" alt="PAN Klinik Köln" loading="lazy">
+      </div>
       <h2 class="ok-teaser__heading">
         Dr. Ziolko ist jetzt Teil des<br>
         <strong>MVZ Orthopädie &middot; PAN Klinik K&ouml;ln</strong>
