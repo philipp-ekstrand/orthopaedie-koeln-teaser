@@ -123,13 +123,24 @@
 
 <!-- Raw Widget-Code. Wird per JS ausgelesen und sowohl als Preview (im iframe) als auch im Textfeld unten ausgegeben. -->
 <script type="text/html" id="widget-source"><style>
+  /* Body und alle Beaver-Container auf weiß, damit kein "Rahmen-Effekt" durch grauen Body / weißen .fl-page-content / beigen Inner-Container entsteht. !important nötig, weil Theme-CSS später lädt. */
+  body { background: #ffffff !important; margin: 0 !important; }
+  .fl-page, .fl-page-content, .fl-content-full, .fl-content, .fl-post-content,
+  .fl-builder-content, article.fl-post, .fl-row, .fl-row-content-wrap, .fl-row-content,
+  .fl-col-group, .fl-col, .fl-col-content, .fl-module, .fl-module-content, .fl-html {
+    background: transparent !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    max-width: none !important;
+    width: 100% !important;
+  }
   .ok-page-shell {
     min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 40px 20px;
-    background: #f2f0ec;
+    background: #ffffff;
     box-sizing: border-box;
   }
   .ok-page-shell > * { width: 100%; max-width: 1200px; }
